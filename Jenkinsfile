@@ -14,14 +14,13 @@ pipeline {
                 }
             }
         
-         stage("Run"){
-            steps {
-                sh 'java -jar target/*.jar'
-                }
-            }
     }
 
     post {
+        success {
+            slackSend channel: 'jenkins_closing_task', message: 'Build Success'
+        }
+         
         failure {
             echo "Build failed"
         }
