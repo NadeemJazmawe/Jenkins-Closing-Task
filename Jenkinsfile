@@ -22,7 +22,7 @@ pipeline {
         }
          
         failure {
-            echo "Build failed"
+            slackSend channel: 'jenkins_closing_task', message: 'Build Failed'
         }
     }
 
