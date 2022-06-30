@@ -13,11 +13,16 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
                 }
             }
+        
     }
 
     post {
+        success {
+            slackSend channel: 'jenkins_closing_task', message: 'Build Success'
+        }
+         
         failure {
-            echo "Build failed"
+            slackSend channel: 'jenkins_closing_task', message: 'Build Failed'
         }
     }
 
