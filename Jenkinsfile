@@ -13,6 +13,12 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
                 }
             }
+        
+         stage("Run"){
+            steps {
+                sh 'java -jar target/*.jar'
+                }
+            }
     }
 
     post {
