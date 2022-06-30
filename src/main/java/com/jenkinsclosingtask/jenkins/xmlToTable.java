@@ -10,7 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.net.URL;
 
 
-public class getxml {
+public class xmlToTable {
 
     public static String getTable(String URL) {
         String html_string = "";
